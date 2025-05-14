@@ -135,7 +135,7 @@ function App() {
       </div>
       
       <div className="input-section">
-        <h2>What is the building load for heating and/or cooling?</h2> 
+        <h2>Filter Selector</h2> 
         <SystemDesignerForm onSubmit={handleFormSubmit} />
       </div>
 
