@@ -84,9 +84,7 @@ const SystemDesignerForm: React.FC<SystemDesignerFormProps> = ({ onSubmit }) => 
 
       {systemType === 'open' && (
         <div className="input-group">
-          <div className="prompt-header" style={{ backgroundColor: '#ADD8E6', color: 'black', padding: '8px', marginBottom: '15px' }}>
-            This prompt appear if "open" is selected
-          </div>
+
           <div className="form-grid">
             <div className="form-group">
               <label htmlFor="tonnage">Tonnage</label>
@@ -116,9 +114,6 @@ const SystemDesignerForm: React.FC<SystemDesignerFormProps> = ({ onSubmit }) => 
 
       {systemType === 'closed' && (
         <div className="input-group">
-           <div className="prompt-header" style={{ backgroundColor: '#ADD8E6', color: 'black', padding: '8px', marginBottom: '15px' }}>
-            This prompt appear if "closed" is selected
-          </div>
           <div className="form-grid">
             <div className="form-group">
               <label htmlFor="systemVolume">System Volume (gallons)</label>
@@ -136,9 +131,7 @@ const SystemDesignerForm: React.FC<SystemDesignerFormProps> = ({ onSubmit }) => 
       )}
 
       <div className="input-group">
-        <div className="prompt-header" style={{ backgroundColor: '#ADD8E6', color: 'black', padding: '8px', marginBottom: '15px' }}>
-            This prompt appears for both
-        </div>
+
         <div className="form-grid">
             <div className="form-group">
             <label htmlFor="electricalCost">Electrical Cost ($/kWh)</label>
