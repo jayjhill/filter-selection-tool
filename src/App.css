@@ -1,253 +1,679 @@
 /* src/App.css */
-:root {
-  --xylem-blue: #0072ce; /* Approximate from logo */
-  --xylem-light-blue: #00a9e0; /* Approximate from header */
-  --xylem-green: #8DC63F; /* From CAPEX/OPEX labels */
-  --text-color: #333;
-  --light-gray: #f0f0f0;
-  --border-color: #ccc;
-  --font-family: 'Arial', sans-serif; /* Or a specific font if you identify it */
-}
 
-body {
-  font-family: var(--font-family);
-  margin: 0;
-  padding: 0;
-  background-color: #fff;
-  color: var(--text-color);
-}
-
-.app-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.header-bar {
-  background-color: var(--xylem-light-blue);
-  color: white;
-  padding: 10px 20px;
-  font-size: 1.5em;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.input-section, .output-section {
-  border: 1px solid var(--border-color);
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  background-color: white;
-}
-
-.input-section h2, .output-section h2 {
-  color: var(--xylem-blue);
-  margin-top: 0;
-  border-bottom: 2px solid var(--xylem-light-blue);
-  padding-bottom: 10px;
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group label {
-  margin-bottom: 8px;
-  font-weight: bold;
-  color: #555;
-  font-size: 0.9em;
-}
-.form-group label .info-icon {
-  color: var(--xylem-light-blue);
-  margin-right: 5px;
-  font-size: 0.8em;
-  cursor: help; /* Optional: if you add tooltips */
-}
-
-
-.form-group input[type="text"],
-.form-group input[type="number"],
-.form-group select {
-  padding: 10px;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  font-size: 1em;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.form-group input[type="radio"] {
-  margin-right: 5px;
-}
-.radio-group label {
-  font-weight: normal;
-  margin-right: 15px;
-}
-
-
-.calculate-button {
-  background-color: var(--xylem-blue);
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.calculate-button:hover {
-  background-color: #0058a1; /* Darker blue */
-}
-
-.output-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  align-items: stretch; /* Makes cards same height */
-}
-
-.filter-card {
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 15px;
-  background-color: var(--light-gray);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Pushes H2O quality to bottom */
-}
-
-.filter-card h3 {
-  color: var(--xylem-blue);
-  margin-top: 0;
-  font-size: 1.2em;
-  text-align: center;
-  background-color: #e0e0e0; /* Light grey header for card title */
-  padding: 8px;
-  border-radius: 4px 4px 0 0;
-  margin: -15px -15px 10px -15px; /* Extend to edges */
-}
-
-.filter-card img {
-  width: 100%;
-  max-height: 180px;
-  object-fit: contain;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  background-color: white;
-  padding: 5px;
-  box-sizing: border-box;
-}
-
-.filter-card p {
-  margin: 8px 0;
-  font-size: 0.95em;
-}
-
-.filter-card .opex {
-  font-weight: bold;
-  color: var(--xylem-green); /* Green for OPEX value */
-}
-
-.filter-card .model-name {
-  font-weight: bold;
-  color: var(--xylem-blue);
-}
-
-.filter-card .label {
-  font-weight: bold;
-  color: #555;
-}
-
-.h2o-quality {
-  background-color: var(--xylem-blue);
-  color: white;
-  padding: 8px;
-  text-align: center;
-  border-radius: 0 0 4px 4px;
-  margin: 10px -15px -15px -15px; /* Extend to edges */
-  font-size: 0.9em;
-}
-
-.error-message {
-  color: red;
-  font-weight: bold;
-  margin-top: 15px;
-}
-
-.footer {
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border-color);
-  text-align: right; /* Align logo and text to the right */
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.footer img {
-  height: 30px; /* Adjust as needed */
-  margin-right: 10px;
-}
-
-.footer span {
-  color: var(--xylem-blue);
-  font-style: italic;
-}
-
-/* Input prompts styling according to UserInput.png */
-.prompt-header {
-  background-color: #00A9E0; /* Teal color from image */
-  color: white;
-  padding: 10px;
-  font-size: 1.1em;
-  margin-bottom: 15px;
-}
-
-.input-group {
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin-bottom: 15px;
-}
-
-.input-group legend {
-  font-weight: bold;
-  color: #0072CE; /* Darker blue */
-  padding: 0 5px;
-}
-
-/* Mimic the layout of UserInput.png */
-.input-container {
-    background-color: #f7f7f7; /* Light grey background */
-    padding: 20px;
-    border-radius: 5px;
-}
-
-.input-row {
-    display: flex;
-    gap: 20px; /* Space between input groups */
-    margin-bottom: 15px;
-    align-items: flex-start;
-}
-
-.input-column {
-    flex: 1; /* Each column takes equal space */
-    padding: 10px;
-    border: 1px solid #E0E0E0;
-    background-color: white;
-}
-
-.input-column h4 {
+/* ==========================================================================
+   1. CSS Custom Properties (Variables)
+   ========================================================================== */
+   :root {
+    /* ----- Colors ----- */
+    /* Primary & Accents */
+    --header-bg: #0077A4; /* Top bar */
+    --accent-blue: #00A9E0; /* Underlines, Clear Inputs button */
+    --info-icon-bg: #3498DB;
+  
+    /* Sidebar */
+    --sidebar-bg: #2A3F54;
+    --sidebar-text-color: #FFFFFF;
+    --sidebar-icon-color: #FFFFFF;
+    --sidebar-item-hover-bg: #34495E;
+    --sidebar-border-color: #4A5F73; /* For internal borders if any */
+  
+    /* Content Area */
+    --page-bg: #EEEEEE; /* Overall page background */
+    --section-container-bg: #F7F7F7; /* Background of bordered sections */
+    --section-container-border: #DCE4E9;
+    
+    --input-border-color: #CCCCCC;
+    --input-bg-color: #FFFFFF;
+    --input-placeholder-color: #777777;
+    --input-text-color: #333333;
+  
+    /* Text */
+    --text-primary: #333333;   /* Main body text, labels */
+    --text-section-title: #515151; /* Titles like "Selection Options" */
+    --text-light: #FFFFFF;
+    --link-color: var(--header-bg); /* For "select all" or similar links */
+  
+    /* Buttons */
+    --button-clear-inputs-bg: var(--accent-blue);
+    --button-clear-inputs-text: var(--text-light);
+    --button-primary-bg: var(--header-bg); /* Example for other primary buttons */
+    --button-primary-text: var(--text-light);
+  
+  
+    /* ----- Typography ----- */
+    --font-family-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    
+    --font-size-xs: 11px;
+    --font-size-sm: 13px;
+    --font-size-base: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 18px;
+    --font-size-page-title: 24px;
+  
+  
+    /* Font Weights */
+    --font-weight-normal: 400;
+    --font-weight-semibold: 600; /* Added for more control if needed */
+    --font-weight-bold: 700;
+  
+    /* ----- Spacing ----- */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 30px;
+  
+    /* ----- Borders ----- */
+    --border-radius-sm: 3px;
+    --border-radius-md: 4px;
+  
+    /* ----- Other ----- */
+    --header-height: 50px; /* Approximate, adjust based on your header content */
+  }
+  
+  /* ==========================================================================
+     2. Global Resets & Base Styles
+     ========================================================================== */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: var(--font-family-main);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    background-color: var(--page-bg);
+    color: var(--text-primary);
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-main);
     margin-top: 0;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #E0E0E0;
-    color: #333;
+    margin-bottom: var(--spacing-md);
+    font-weight: var(--font-weight-bold); /* Default bold for headings */
+  }
+  
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* ==========================================================================
+     3. Core Layout Structure
+     ========================================================================== */
+  .app-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr; /* Sidebar width, content takes the rest */
+    grid-template-rows: var(--header-height) calc(100vh - var(--header-height)); /* Header height, rest for content area */
+    grid-template-areas:
+      "header header"
+      "sidebar main";
+    height: 100vh; /* Ensure layout takes full viewport height */
+    width: 100%;
+    overflow: hidden; /* Prevent body scrollbars if content fits */
+  }
+  
+  .app-header {
+    grid-area: header;
+    background-color: var(--header-bg);
+    color: var(--text-light);
+    padding: 0 var(--spacing-lg); /* Adjusted padding for vertical centering */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* position: sticky; /* Removed sticky for now as it complicates sidebar height */
+    /* top: 0; */
+    z-index: 1000;
+  }
+  
+  .app-sidebar {
+    grid-area: sidebar;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text-color);
+    padding: var(--spacing-lg);
+    overflow-y: auto;
+    /* height is implicitly set by grid-template-rows on .app-layout */
+  }
+  
+  .app-main-content {
+    grid-area: main;
+    background-color: var(--page-bg);
+    padding: var(--spacing-lg);
+    overflow-y: auto;
+  }
+  
+  /* ==========================================================================
+     4. Header Specific Styles
+     ========================================================================== */
+  .app-header .header-left-links,
+  .app-header .header-right-links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .app-header .header-left-links a,
+  .app-header .header-right-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin: 0 var(--spacing-md);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    font-weight: var(--font-weight-normal);
+    padding: var(--spacing-sm) 0; /* For better click area */
+  }
+  .app-header .header-left-links a:hover,
+  .app-header .header-right-links a:hover {
+    text-decoration: underline;
+  }
+  
+  /* ==========================================================================
+     5. Sidebar Specific Styles
+     ========================================================================== */
+  .app-sidebar .button-clear-inputs {
+    display: block;
+    width: 100%;
+    background-color: var(--button-clear-inputs-bg);
+    color: var(--button-clear-inputs-text);
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md); /* Adjusted padding */
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    text-align: left;
+    margin-bottom: var(--spacing-lg);
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+  }
+  .app-sidebar .button-clear-inputs:hover {
+    opacity: 0.9;
+  }
+  
+  .app-sidebar .sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .app-sidebar .nav-item a {
+    display: block;
+    color: var(--sidebar-text-color);
+    text-decoration: none;
+    padding: var(--spacing-sm) var(--spacing-sm); /* Padding for nav links */
+    font-size: var(--font-size-sm);
+    transition: background-color 0.2s ease-in-out, padding-left 0.2s ease-in-out;
+    border-radius: var(--border-radius-sm); /* Optional: slight rounding on hover */
+  }
+  
+  .app-sidebar .nav-item a:hover {
+    background-color: var(--sidebar-item-hover-bg);
+    padding-left: var(--spacing-md); /* Indent on hover */
+  }
+  
+  /* ==========================================================================
+     6. Main Content Element Styles
+     ========================================================================== */
+  .page-main-title {
+    font-size: var(--font-size-page-title);
+    font-weight: var(--font-weight-normal); /* ESP site title is not super bold */
+    color: var(--text-primary);
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 2px solid var(--accent-blue);
+  }
+  
+  .content-section-box {
+    background-color: var(--section-container-bg);
+    border: 1px solid var(--section-container-border);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Subtle shadow */
+  }
+  
+  .section-title-bar {
+    padding: var(--spacing-sm) var(--spacing-md);
+    /* background-color: #fdfdfd; /* Slightly off-white if needed */
+    /* border-bottom: 1px solid var(--section-container-border); /* Title bar separator */
+  }
+  
+  .section-title-bar h2, 
+  .section-title-bar h3 {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-section-title);
+    margin: 0;
+    display: inline-block;
+  }
+  
+  .content-section-box .section-content {
+     padding: var(--spacing-md);
+  }
+  
+  /* Form Elements */
+  label {
+    font-size: var(--font-size-sm);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+    display: block;
+    font-weight: var(--font-weight-bold);
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  select {
+    font-family: var(--font-family-main);
+    font-size: var(--font-size-sm);
+    color: var(--input-text-color);
+    background-color: var(--input-bg-color);
+    border: 1px solid var(--input-border-color);
+    border-radius: var(--border-radius-sm);
+    padding: 6px 12px; /* ESP-like padding */
+    height: 32px; /* ESP-like height */
+    box-sizing: border-box;
+    width: 100%;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  input[type="text"]:focus,
+  input[type="number"]:focus,
+  select:focus {
+    border-color: var(--accent-blue);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,169,224,.25); /* Focus glow */
+  }
+  
+  input::placeholder {
+    color: var(--input-placeholder-color);
+    opacity: 1;
+  }
+  
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='5' viewBox='0 0 10 5'%3E%3Cpath fill='%23333333' d='M0 0L5 5L10 0H0Z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+  }
+  
+  /* Radio buttons (basic styling, you might need more for exact match) */
+  .radio-group label {
+    font-weight: var(--font-weight-normal);
+    margin-right: var(--spacing-md);
+    display: inline-flex; /* Align radio and text */
+    align-items: center;
+    cursor: pointer;
+  }
+  .radio-group input[type="radio"] {
+    margin-right: var(--spacing-xs);
+    width: auto; /* Override 100% width for radios */
+    height: auto; /* Override height for radios */
+  }
+  
+  /* Buttons */
+  .button {
+    font-family: var(--font-family-main);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    padding: 8px var(--spacing-md); /* ESP-like padding */
+    border: 1px solid transparent; /* Base border */
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    line-height: 1.5; /* Ensure text is centered vertically */
+    height: 32px; /* Match input height */
+    box-sizing: border-box;
+  }
+  
+  .button-primary { /* Your main "Find Filters" button */
+    background-color: var(--button-primary-bg);
+    color: var(--button-primary-text);
+    border-color: var(--button-primary-bg);
+  }
+  .button-primary:hover {
+    opacity: 0.9;
+  }
+  .button-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0,119,164,.5); /* Focus glow */
+  }
+  
+  /* Info Icon */
+  .info-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    background-color: var(--info-icon-bg);
+    color: var(--text-light);
+    border-radius: 50%;
+    font-size: 10px; /* For the 'i' */
+    font-style: normal;
+    font-weight: var(--font-weight-bold);
+    margin-left: var(--spacing-sm);
+    cursor: help;
+    vertical-align: middle;
+  }
+  
+  /* ==========================================================================
+     7. Specific Component Overrides (from your previous App.css if needed)
+     ========================================================================== */
+  /* Your SystemDesignerForm specific styles might go here if not handled by global input/label styles */
+  .input-container .prompt-header { /* Your existing style for prompt headers */
+    background-color: var(--accent-blue); /* Or a lighter version like #ADD8E6 if that was intended */
+    color: var(--text-light); /* Or black if background is light blue */
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+  }
+  
+  /* Output Display - basic card styling */
+  .filter-card {
+    border: 1px solid var(--section-container-border);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-md);
+    background-color: var(--input-bg-color); /* White cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-md); /* Space between cards if in a grid */
+  }
+  
+  .filter-card h3 { /* Title within the card like "Separator" */
+    color: var(--header-bg); /* Using primary blue for card titles */
+    margin-top: 0;
+    font-size: var(--font-size-md);
+    text-align: center;
+    background-color: #e9ecef; /* Light grey header for card title */
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+    margin: calc(-1 * var(--spacing-md)) calc(-1 * var(--spacing-md)) var(--spacing-md) calc(-1 * var(--spacing-md)); /* Extend to edges */
+  }
+  
+  .filter-card img {
+    width: 100%;
+    max-height: 150px; /* Adjust */
+    object-fit: contain;
+    margin-bottom: var(--spacing-sm);
+    border: 1px solid #ddd;
+    background-color: white;
+    padding: var(--spacing-xs);
+  }
+  
+  .filter-card p {
+    margin: var(--spacing-xs) 0;
+    font-size: var(--font-size-sm);
+  }
+  
+  .filter-card .opex {
+    font-weight: var(--font-weight-bold);
+    color: #28a745; /* Green for OPEX, or use a variable */
+  }
+  
+  .filter-card .model-name {
+    font-weight: var(--font-weight-bold);
+    color: var(--header-bg);
+  }
+  
+  .filter-card .label {
+    font-weight: var(--font-weight-bold);
+    color: var(--text-secondary);
+  }
+  
+  .h2o-quality { /* Footer bar in the card */
+    background-color: var(--header-bg);
+    color: white;
+    padding: var(--spacing-sm);
+    text-align: center;
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+    margin: var(--spacing-md) calc(-1 * var(--spacing-md)) calc(-1 * var(--spacing-md)) calc(-1 * var(--spacing-md));
+    font-size: var(--font-size-xs);
+  }
+  
+  .output-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive cards */
+    gap: var(--spacing-md);
+  }
+  
+  .error-message {
+    color: #dc3545; /* Red for errors */
+    font-weight: var(--font-weight-semibold);
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: var(--border-radius-sm);
+  }
+  
+  /* ==========================================================================
+     8. Footer (If you decide to keep it and style it)
+     ========================================================================== */
+  .footer {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+    border-top: 1px solid var(--section-container-border);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+  }
+  .footer img {
+    display: inline-block;
+    vertical-align: middle;
+    height: 24px; /* Adjust */
+    margin-right: var(--spacing-sm);
+  }
+
+  /* ==========================================================================
+   X. Tagline Section Styles (Add this new section)
+   ========================================================================== */
+.tagline-section {
+  margin-top: var(--spacing-lg); /* Space above the tagline */
+  padding: var(--spacing-md) 0; /* Vertical padding, no horizontal padding if it spans full width */
+  text-align: center;
+  background-color: var(--section-container-bg); /* Light gray, or choose another subtle background */
+  border: 1px solid var(--section-container-border);
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  display: flex; /* For aligning items nicely */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens if needed */
+  gap: var(--spacing-sm); /* Space between text and arrows */
 }
+
+.tagline-text {
+  font-size: var(--font-size-base); /* e.g., 14px or 16px */
+  color: var(--text-section-title); /* A slightly muted but readable color */
+  font-weight: var(--font-weight-semibold); /* Make it a bit more prominent */
+}
+
+.tagline-arrow {
+  font-size: var(--font-size-lg); /* Make arrow a bit larger */
+  color: var(--accent-blue); /* Use an accent color for the arrow */
+  font-weight: var(--font-weight-bold);
+  line-height: 1; /* Ensure it aligns well vertically */
+  /* Optional: Add a subtle background or border to the arrow itself */
+  /*
+  background-color: rgba(0, 169, 224, 0.1); 
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  */
+}
+
+/* Style for the no-results message if you want to improve it */
+.no-results-message {
+  text-align: center;
+  padding: var(--spacing-lg);
+  color: var(--text-secondary);
+  font-style: italic;
+  background-color: var(--section-container-bg);
+  border: 1px solid var(--section-container-border);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-lg); /* If tagline is shown even with no results */
+}
+
+/* Adjustments to ensure it visually aligns with the card grid area */
+/* This assumes the tagline is within the same parent container as .output-grid,
+   or you apply this styling to the .results-section .section-content if the
+   tagline is inside that. */
+.results-section .section-content {
+  /* If the tagline is inside .section-content, these are not needed here.
+     If it's outside, the .tagline-section styles will apply directly. */
+}
+
+/* ==========================================================================
+   X. Chevron Tagline Section Styles (Add this new section or replace old tagline styles)
+   ========================================================================== */
+   .chevron-tagline-container {
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    display: flex; 
+    justify-content: center; /* Center the .chevron-tagline if it's narrower than this container */
+    padding: 0 var(--spacing-md); /* Add some padding if the container itself is full-width */
+  }
+  
+  .chevron-tagline {
+    position: relative; 
+    padding: var(--spacing-md) var(--spacing-xl); 
+    padding-right: calc(var(--spacing-xl) + 20px); 
+    
+    background: linear-gradient(to right, var(--accent-blue), #E74C3C); 
+    color: var(--text-light); 
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-base); 
+    
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    text-align: center;
+    
+    min-height: 50px; /* Ensure a minimum height, should match chevron point calculations */
+    width: 100%; /* Take up width of .chevron-tagline-container */
+  
+    /* 
+      Set the max-width based on 3 cards.
+      Replace 280px with your actual card width and var(--spacing-md) with your actual gap.
+      If your cards are fully responsive (e.g. 1fr), this fixed max-width might not always align.
+      In that case, you might need JavaScript to calculate and set this width,
+      or accept that it spans the available width of its parent section.
+    */
+    max-width: calc((3 * 380px) + (2 * var(--spacing-md))); /* Example: (3 * card_width) + (2 * gap) */
+    /* If using the above max-width, you might not need justify-content on .chevron-tagline-container
+       if .chevron-tagline itself handles its internal text centering.
+       However, if .chevron-tagline-container is wider than this max-width,
+       then margin: 0 auto on .chevron-tagline can center it.
+    */
+     margin-left: auto;  /* Center the chevron if max-width is applied and container is wider */
+     margin-right: auto; /* Center the chevron if max-width is applied and container is wider */
+  
+  
+    /* clip-path for the full chevron shape */
+    clip-path: polygon(
+      20px 0%,           /* Top-left point after cut-in */
+      100% 0%,           /* Top-right (before point starts) */
+      calc(100% + 20px) 50%, /* Tip of the chevron point - extends 20px OUTSIDE */
+      100% 100%,          /* Bottom-right (before point starts) */
+      20px 100%,         /* Bottom-left point after cut-in */
+      0% 50%             /* Tip of the left cut-in */
+    );
+    /* We need to adjust padding and potentially how ::before is handled if the point extends */
+    /* Let's reconsider the clip-path and ::before for better alignment with fixed width */
+  }
+  
+  /* Revised clip-path and pseudo-element for a fixed overall shape */
+  .chevron-tagline {
+    /* ... (keep other styles like background, color, display flex, min-height, max-width, margin auto) ... */
+  
+    /* Adjust padding to accommodate the "cut-in" and "point-out" visually */
+    /* The actual content will be within these paddings. */
+    /* Let point_width be the visual width of the chevron point/cut */
+    --chevron-point-width: 25px; /* Define as a variable for easier adjustment */
+    --chevron-height: 50px; /* Should match min-height or actual height */
+  
+    padding: var(--spacing-md) calc(var(--spacing-xl) + var(--chevron-point-width)); /* More padding on sides */
+    min-height: var(--chevron-height);
+    
+    clip-path: polygon(
+      var(--chevron-point-width) 0%, /* Top-left base of cut-in */
+      calc(100% - var(--chevron-point-width)) 0%, /* Top-right base of point-out */
+      100% 50%, /* Tip of the right point */
+      calc(100% - var(--chevron-point-width)) 100%, /* Bottom-right base of point-out */
+      var(--chevron-point-width) 100%, /* Bottom-left base of cut-in */
+      0% 50% /* Tip of the left cut-in */
+    );
+  }
+  
+  /* Remove ::before if clip-path handles both sides, or adjust it carefully.
+     The clip-path above now creates both the left indent and the right point.
+     If you used ::before for the left cut-out styling with background color, it might still be useful.
+     Let's assume clip-path handles the shape, and ::before is for the visual "cut" if background is different.
+  */
+  .chevron-tagline::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: calc(var(--chevron-height) / 2) 0 calc(var(--chevron-height) / 2) var(--chevron-point-width);
+    border-color: transparent transparent transparent var(--page-bg); /* Simulates cut from page background */
+    z-index: 0; /* Behind the main gradient content */
+  }
+  /* Ensure the main content of .chevron-tagline has a higher z-index or is positioned such that it covers this */
+  .chevron-tagline > * { /* For children like .tagline-segment */
+    position: relative;
+    z-index: 1;
+  }
+  
+  
+  .chevron-tagline .tagline-segment {
+    padding: 0 var(--spacing-sm);
+    position: relative; 
+    z-index: 1; 
+  }
+  
+  /* If you need more distinct separation or lines between text segments: */
+  /*
+  .chevron-tagline .tagline-segment:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: calc(-1 * var(--spacing-sm) / 2 - 1px); // Center the pseudo-element
+    top: 15%;
+    bottom: 15%;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.5); // Semi-transparent white line
+  }
+  */
+  
+  /* --- Fallback or simpler version if clip-path is too complex or not supported --- */
+  /*
+  .chevron-tagline-simple {
+    position: relative;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: linear-gradient(to right, var(--accent-blue), #E74C3C);
+    color: var(--text-light);
+    font-weight: var(--font-weight-semibold);
+    text-align: center;
+    border-radius: var(--border-radius-md); // Simple rounded box
+  }
+  .chevron-tagline-simple .tagline-segment {
+    margin: 0 var(--spacing-sm);
+    display: inline-block; // For margin to apply correctly
+  }
+  */

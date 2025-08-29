@@ -81,7 +81,7 @@ const SystemDesignerForm: React.FC<SystemDesignerFormProps> = ({ onSubmit }) => 
 
   return (
     <form onSubmit={handleSubmit} className="input-container">
-      <div className="prompt-header" style={{ backgroundColor: '#00A9E0', color: 'white', padding: '10px', marginBottom: '20px' }}>
+      <div className="prompt-header" style={{ backgroundColor: '#0085ad', color: 'white', padding: '10px', marginBottom: '20px' }}>
         Select "Open" or "Closed"
       </div>
       <div className="form-group radio-group" style={{ marginBottom: '20px' }}>
@@ -107,9 +107,6 @@ const SystemDesignerForm: React.FC<SystemDesignerFormProps> = ({ onSubmit }) => 
 
       {systemType === 'open' && (
         <div className="input-group">
-          <div className="prompt-header" style={{ backgroundColor: '#ADD8E6', color: 'black', padding: '8px', marginBottom: '15px' }}>
-            This prompt appears if "open" is selected (provide Tonnage and/or Recirc)
-          </div>
           <div className="form-grid">
             <div className="form-group">
               <label htmlFor="tonnage">Tonnage</label>
@@ -139,9 +136,6 @@ const SystemDesignerForm: React.FC<SystemDesignerFormProps> = ({ onSubmit }) => 
 
       {systemType === 'closed' && (
         <div className="input-group">
-           <div className="prompt-header" style={{ backgroundColor: '#ADD8E6', color: 'black', padding: '8px', marginBottom: '15px' }}>
-            This prompt appears if "closed" is selected
-          </div>
           <div className="form-grid">
             <div className="form-group">
               <label htmlFor="systemVolume">System Volume (gallons)</label>
@@ -160,9 +154,7 @@ const SystemDesignerForm: React.FC<SystemDesignerFormProps> = ({ onSubmit }) => 
       )}
 
       <div className="input-group">
-        <div className="prompt-header" style={{ backgroundColor: '#ADD8E6', color: 'black', padding: '8px', marginBottom: '15px' }}>
-            This prompt appears for both
-        </div>
+
         <div className="form-grid">
             <div className="form-group">
             <label htmlFor="electricalCost">Electrical Cost ($/kWh)</label>
